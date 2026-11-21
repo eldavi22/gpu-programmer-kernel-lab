@@ -1,0 +1,10 @@
+build/
+out/
+*.o
+*.obj
+*.exe
+*.prof
+*.nsys-rep
+*.ncu-rep
+.cache/
+

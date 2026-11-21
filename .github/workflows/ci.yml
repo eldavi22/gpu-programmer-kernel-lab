@@ -1,0 +1,16 @@
+name: build-and-test
+on:
+  push:
+  pull_request:
+jobs:
+  cpu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build CPU backend
+        run: make cpu
+      - name: Run unit test
+        run: make test
+      - name: Run validation benchmark
+        run: ./build/gpu-gemm --backend cpu --m 96 --n 80 --k 64 --iterations 2
+
